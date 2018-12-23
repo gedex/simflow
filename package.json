@@ -1,0 +1,28 @@
+{
+  "name": "simflow",
+  "version": "0.1.0",
+  "description": "Simply define and run your flows in Chrome",
+  "main": "index.js",
+  "bin": {
+    "simflow": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gedex/simflow.git"
+  },
+  "author": "Akeda Bagus <admin@gedex.web.id>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gedex/simflow/issues"
+  },
+  "homepage": "https://github.com/gedex/simflow#readme",
+  "dependencies": {
+    "ajv": "^6.6.2",
+    "listr": "^0.14.3",
+    "minimist": "^1.2.0",
+    "puppeteer": "^1.11.0"
+  }
+}

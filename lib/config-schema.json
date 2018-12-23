@@ -1,0 +1,86 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"url": {
+			"type": "string",
+			"format": "uri"
+		},
+		"users": {
+			"type": "object",
+			"patternProperties": {
+				"^[a-zA-Z0-9_]+$": {
+					"$ref": "#user"
+				}
+			},
+			"minProperties": 1
+		},
+		"selectors": {
+			"type": "object",
+			"patternProperties": {
+				"^[a-zA-Z0-9_]+$": { "type": "string" }
+			},
+			"minProperties": 1
+		},
+		"initialState": { "type": "string" },
+		"flows": {
+			"type": "object",
+			"patternProperties": {
+				"^[a-zA-Z0-9_]+$": {
+					"$ref": "#flow"
+				}
+			},
+			"minProperties": 1
+		}
+	},
+	"required": [ "url", "initialState", "flows" ],
+	"definitions": {
+		"user": {
+			"$id": "#user",
+			"type": "object",
+			"properties": {
+				"username": { "type": "string" },
+				"password": { "type": "string" }
+			},
+			"required": [ "username", "password" ]
+		},
+		"flow": {
+			"$id": "#flow",
+			"type": "object",
+			"properties": {
+				"requireUser": {
+					"anyOf": [ { "type": "boolean" }, { "type": "string" } ]
+				},
+				"inputState": {
+					"anyOf": [
+						{ "type": "string" },
+						{
+							"type": "array",
+							"items": { "type": "string" }
+						}
+					]
+				},
+				"steps": {
+					"type": "array",
+					"items": {
+						"anyOf": [
+							{ "type": "string" },
+							{
+								"type": "object",
+								"properties": {
+									"step": { "type": "string" },
+									"skippable": { "type": "boolean" },
+									"args": { "type": "object" }
+								},
+								"required": [ "step" ]
+							}
+						]
+					},
+					"minItems": 1
+				},
+				"outputState": { "type": "string" }
+			},
+			"required": [ "inputState", "steps", "outputState" ]
+		}
+	}
+}
