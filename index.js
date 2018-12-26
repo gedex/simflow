@@ -25,6 +25,7 @@ Options:
   -t, --timeout   Global timeout for wait actions.
                   Default to ${ defaultValues.timeout } (in milliseconds).
   -h, --headless  Run Chrome in headless mode.
+      --viewport  Viewport for each page. Example viewport: 800x600.
   -u, --user      User to choose from config file.
 
   -v, --version   Show version.
@@ -32,7 +33,7 @@ Options:
 `
 
 const args = parseArgs( process.argv.slice( 2 ), {
-	string: [ '_', 'config', 'user' ],
+	string: [ '_', 'config', 'user', 'viewport' ],
 	boolean: [ 'headless', 'version', 'help' ],
 	alias: {
 		c: 'config',
@@ -60,6 +61,15 @@ if ( timeout < 0 ) {
 	timeout = defaultValues.timeout
 }
 args.timeout = timeout
+
+let viewport = ( typeof args.viewport === 'string' && args.viewport.length ) || null
+if ( viewport ) {
+	let [ width, height ] = args.viewport.split( 'x' )
+	width = parseInt( width, 10 )
+	height = parseInt( height, 10 )
+	viewport = { width, height }
+}
+args.viewport = viewport
 
 try {
 	flow.run( config.parse( args ) )
