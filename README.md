@@ -72,7 +72,8 @@ a sreenshot of search results.
 | --- | ---- | ----------- |
 | `url` | `string` | **Required**. Base URL. New page opens this URL. Defined path (i.e., `Goto /path`) in steps section uses this base URL. |
 | `users` | `object` |  Named users to refer in steps of a flow. |
-| `selectors` | `object` | Named [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to refer in steps of a flow. 
+| `frames` | `object` | Named frames to refer (in combination with selector) to refer in steps of a flow (i.e. `See selector@frameName`). It accepts regex pattern to match the frame name. |
+| `selectors` | `object` | Named [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to refer in steps of a flow. |
 | `initialState` | `string` | **Required**. Initial state before executing steps in flows. |
 | `flows` | `objects` |  **Required**. Named flows to be passed `simflow`. |
 

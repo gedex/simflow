@@ -15,6 +15,13 @@
 			},
 			"minProperties": 1
 		},
+		"frames": {
+			"type": "object",
+			"patternProperties": {
+				"^[a-zA-Z0-9_]+$": { "type": "string" }
+			},
+			"minProperties": 1
+		},
 		"selectors": {
 			"type": "object",
 			"patternProperties": {
