@@ -58,15 +58,7 @@
 				"requireUser": {
 					"anyOf": [ { "type": "boolean" }, { "type": "string" } ]
 				},
-				"inputState": {
-					"anyOf": [
-						{ "type": "string" },
-						{
-							"type": "array",
-							"items": { "type": "string" }
-						}
-					]
-				},
+				"inputState": { "type": "string" },
 				"steps": {
 					"type": "array",
 					"items": {
