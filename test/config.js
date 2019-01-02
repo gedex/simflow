@@ -68,7 +68,6 @@ describe( 'config parser', () => {
 	it( 'parses valid JSON config', () => {
 		const actual = parseConfig( {
 			config: configFixture( 'valid-config/simple.json' ),
-			user: '',
 			_: [ 'flowName' ],
 			viewport: null,
 			timeout: 1000,
@@ -81,7 +80,6 @@ describe( 'config parser', () => {
 			},
 			flowsToRun: [ 'flowName' ],
 			url: 'https://example.com',
-			user: '',
 			puppeteer: {
 				defaultViewport: null,
 				ignoreHTTPSErrors: true,

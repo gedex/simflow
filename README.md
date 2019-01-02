@@ -27,7 +27,7 @@ a sreenshot of search results.
   ```json
   {
     "url": "https://github.com",
-    "selectors": {
+    "references": {
       "searchField": "[name='q']",
       "searchButton": "[type='submit']"
     },
@@ -59,17 +59,8 @@ a sreenshot of search results.
 | Key | Type | Description |
 | --- | ---- | ----------- |
 | `url` | `string` | **Required**. Base URL. New page opens this URL. Defined path (i.e., `Goto /path`) in steps section uses this base URL. |
-| `users` | `object` |  Named users to refer in steps of a flow. |
-| `frames` | `object` | Named frames to refer (in combination with selector) to refer in steps of a flow (i.e. `See selector@frameName`). It accepts regex pattern to match the frame name. |
-| `selectors` | `object` | Named [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to refer in steps of a flow. |
+| `references` | `object` | List of references to be used in steps of a flow. |
 | `flows` | `objects` |  **Required**. Flow names mapped to array of steps. Named flows are passed to `simflow` as args. |
-
-### Users
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `username` | `string` | Username |
-| `password` | `string` | Password |
 
 ### Step
 

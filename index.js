@@ -10,7 +10,6 @@ const pkg = require( './package.json' )
 
 const defaultValues = {
 	timeout: 10000,
-	user: '',
 }
 
 const usage = `${ pkg.name } ${ pkg.version } by ${ pkg.author }
@@ -25,20 +24,18 @@ Options:
                   Default to ${ defaultValues.timeout } (in milliseconds).
   -h, --headless  Run Chrome in headless mode.
       --viewport  Viewport for each page. Example viewport: 800x600.
-  -u, --user      User to choose from config file.
 
   -v, --version   Show version.
   -h, --help      Show usage.
 `
 
 const args = parseArgs( process.argv.slice( 2 ), {
-	string: [ '_', 'config', 'user', 'viewport' ],
+	string: [ '_', 'config', 'viewport' ],
 	boolean: [ 'headless', 'version', 'help' ],
 	alias: {
 		c: 'config',
 		t: 'timeout',
 		h: 'headless',
-		u: 'user',
 		v: 'version',
 		h: 'help',
 	},
