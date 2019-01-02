@@ -71,20 +71,9 @@
 		},
 		"flow": {
 			"$id": "#flow",
-			"type": "object",
-			"properties": {
-				"requireUser": {
-					"anyOf": [ { "type": "boolean" }, { "type": "string" } ]
-				},
-				"steps": {
-					"type": "array",
-					"items": {
-						"type": "string"
-					},
-					"minItems": 1
-				}
-			},
-			"required": [ "steps" ]
+			"type": "array",
+			"items": { "type": "string" },
+			"minItems": 1
 		}
 	}
 }

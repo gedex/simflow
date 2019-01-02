@@ -77,9 +77,7 @@ describe( 'config parser', () => {
 		const expected = {
 			file: configFixture( 'valid-config/simple.json' ),
 			flows: {
-				flowName: {
-					steps: [ "Goto '/'" ],
-				},
+				flowName: [ "Goto '/'" ],
 			},
 			flowsToRun: [ 'flowName' ],
 			url: 'https://example.com',

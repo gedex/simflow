@@ -1,10 +1,8 @@
 {
 	"url": "https://example.com",
 	"flows": {
-		"flowName": {
-			"steps": [
-				"Goto '/'"
-			]
-		}
+		"flowName": [
+			"Goto '/'"
+		]
 	}
 }

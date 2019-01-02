@@ -32,18 +32,16 @@ a sreenshot of search results.
       "searchButton": "[type='submit']"
     },
     "flows": {
-      "search": {
-        "steps": [
-          "Goto '/search'",
-          "See searchField",
-          "Type in searchField 'simflow'",
-          "See searchButton",
-          "Click searchButton",
-          "Wait page { to: 'reload' }",
-          "Save screenshot as 'search-results.png'"
-          "Save page as 'search-results.html'"
-        ]
-      }
+      "search": [
+        "Goto '/search'",
+        "See searchField",
+        "Type in searchField 'simflow'",
+        "See searchButton",
+        "Click searchButton",
+        "Wait page { to: 'reload' }",
+        "Save screenshot as 'search-results.png'",
+        "Save page as 'search-results.html'"
+      ]
     }
   } 
   ```
@@ -64,7 +62,7 @@ a sreenshot of search results.
 | `users` | `object` |  Named users to refer in steps of a flow. |
 | `frames` | `object` | Named frames to refer (in combination with selector) to refer in steps of a flow (i.e. `See selector@frameName`). It accepts regex pattern to match the frame name. |
 | `selectors` | `object` | Named [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to refer in steps of a flow. |
-| `flows` | `objects` |  **Required**. Named flows to be passed `simflow`. |
+| `flows` | `objects` |  **Required**. Flow names mapped to array of steps. Named flows are passed to `simflow` as args. |
 
 ### Users
 
@@ -73,14 +71,7 @@ a sreenshot of search results.
 | `username` | `string` | Username |
 | `password` | `string` | Password |
 
-### Flows
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `requireUser` | `boolean` or `string` | If set to true, it requires passing `--user` option to `simflow`. If set to string, it requires a user in `users` section to be passed (i.e. `simflow -u admin`). |
-| `steps` | `array` | **Required**. List of steps in this flow. |
-
-### Flow Steps
+### Step
 
 Step is a string with grammar defined in a [PEG](https://en.wikipedia.org/wiki/Parsing_expression_grammar) file [`lib/step.pegjs`](./lib/step.pegjs).
 
