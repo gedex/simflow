@@ -73,5 +73,5 @@ args.viewport = viewport
 try {
 	flow.run( parseConfig( args ) )
 } catch ( e ) {
-	console.error( e.message )
+	console.error( `${ e.name }: ${ e.message }` )
 }
