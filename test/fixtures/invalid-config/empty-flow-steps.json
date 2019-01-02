@@ -1,11 +1,8 @@
 {
 	"url": "https://example.com",
-	"initialState": "",
 	"flows": {
 		"flowName": {
-			"steps": [],
-			"inputState": "foo",
-			"outputState": "bar"
+			"steps": []
 		}
 	}
 }

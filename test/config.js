@@ -79,12 +79,9 @@ describe( 'config parser', () => {
 			flows: {
 				flowName: {
 					steps: [ "Goto '/'" ],
-					inputState: 'foo',
-					outputState: 'bar',
 				},
 			},
 			flowsToRun: [ 'flowName' ],
-			initialState: 'foo',
 			url: 'https://example.com',
 			user: '',
 			puppeteer: {

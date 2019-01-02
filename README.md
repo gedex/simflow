@@ -31,10 +31,8 @@ a sreenshot of search results.
       "searchField": "[name='q']",
       "searchButton": "[type='submit']"
     },
-    "initialState": "",
     "flows": {
       "search": {
-        "inputState": ".",
         "steps": [
           "Goto '/search'",
           "See searchField",
@@ -44,8 +42,7 @@ a sreenshot of search results.
           "Wait page { to: 'reload' }",
           "Save screenshot as 'search-results.png'"
           "Save page as 'search-results.html'"
-        ],
-        "outputState": "."
+        ]
       }
     }
   } 
@@ -67,7 +64,6 @@ a sreenshot of search results.
 | `users` | `object` |  Named users to refer in steps of a flow. |
 | `frames` | `object` | Named frames to refer (in combination with selector) to refer in steps of a flow (i.e. `See selector@frameName`). It accepts regex pattern to match the frame name. |
 | `selectors` | `object` | Named [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to refer in steps of a flow. |
-| `initialState` | `string` | **Required**. Initial state before executing steps in flows. |
 | `flows` | `objects` |  **Required**. Named flows to be passed `simflow`. |
 
 ### Users
@@ -82,9 +78,7 @@ a sreenshot of search results.
 | Key | Type | Description |
 | --- | ---- | ----------- |
 | `requireUser` | `boolean` or `string` | If set to true, it requires passing `--user` option to `simflow`. If set to string, it requires a user in `users` section to be passed (i.e. `simflow -u admin`). |
-| `inputState` | `string` | **Required**. Expected state before running this flow. |
 | `steps` | `array` | **Required**. List of steps in this flow. |
-| `outputState` | `string` | **Required**. Output step after running this flow. |
 
 ### Flow Steps
 

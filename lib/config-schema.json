@@ -48,7 +48,6 @@
 			},
 			"minProperties": 1
 		},
-		"initialState": { "type": "string" },
 		"flows": {
 			"type": "object",
 			"patternProperties": {
@@ -59,7 +58,7 @@
 			"minProperties": 1
 		}
 	},
-	"required": [ "url", "initialState", "flows" ],
+	"required": [ "url", "flows" ],
 	"definitions": {
 		"user": {
 			"$id": "#user",
@@ -77,17 +76,15 @@
 				"requireUser": {
 					"anyOf": [ { "type": "boolean" }, { "type": "string" } ]
 				},
-				"inputState": { "type": "string" },
 				"steps": {
 					"type": "array",
 					"items": {
 						"type": "string"
 					},
 					"minItems": 1
-				},
-				"outputState": { "type": "string" }
+				}
 			},
-			"required": [ "inputState", "steps", "outputState" ]
+			"required": [ "steps" ]
 		}
 	}
 }

@@ -1,6 +1,5 @@
 {
 	"url": "https://example.com",
-	"initialState": "",
 	"flows": {
 		"007": {}
 	}
