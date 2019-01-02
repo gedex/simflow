@@ -7,7 +7,8 @@
     "simflow": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pegjs": "pegjs -o lib/step-parser.js lib/step.pegjs",
+    "test": "npm run pegjs && mocha --reporter spec --bail --check-leaks test/"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,13 @@
   "homepage": "https://github.com/gedex/simflow#readme",
   "dependencies": {
     "ajv": "^6.6.2",
+    "flat": "^4.1.0",
     "listr": "^0.14.3",
     "minimist": "^1.2.0",
     "puppeteer": "^1.11.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "pegjs": "^0.10.0"
   }
 }
