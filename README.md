@@ -39,20 +39,21 @@ a sreenshot of search results.
       "searchField": "[name='q']",
       "searchButton": "[type='submit']"
     },
-    "initialState": "notLoggedIn",
+    "initialState": "",
     "flows": {
       "search": {
-        "inputState": "notLoggedIn",
+        "inputState": ".",
         "steps": [
-          "Goto /search",
+          "Goto '/search'",
           "See searchField",
-          "Type in searchField simflow",
+          "Type in searchField 'simflow'",
           "See searchButton",
           "Click searchButton",
-          "Page reloads",
-          "Take screenshot search-results.png"
+          "Wait page { to: 'reload' }",
+          "Save screenshot as 'search-results.png'"
+          "Save page as 'search-results.html'"
         ],
-        "outputState": "loggedIn"
+        "outputState": "."
       }
     }
   } 
@@ -95,24 +96,24 @@ a sreenshot of search results.
 
 ### Flow Steps
 
-Step can be a `string` or `object`. For example:
+Step is a string with grammar defined in a [PEG](https://en.wikipedia.org/wiki/Parsing_expression_grammar) file [`lib/step.pegjs`](./lib/step.pegjs).
+
+Some example of steps:
 
 ```
+// Use reference.
 Click namedSelector
-```
+Click namedSelector@frameName
 
-or:
+// Use literal string for selector.
+Click '.header h1'@'frameName'
 
-```
-{
-	"step": "Click namedSelector",
-	"skippable": true,
-	"args": { "timeout": 1000 }
-}
-```
+Type into namedSelector "hello world"
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `step` | `string` | Step. |
-| `skippable` | `boolean` | If set to true, failed step is marked as skipped. |
-| `args` | `object` | Arguments to be passed to `click` handler. |
+Press 'Enter'
+
+// Step arguments.
+Press 'Enter' { delay: 1000 }
+Save screenshot as './screenshots/filename.png' { fullPage: true }
+Save page as './pages/index.pdf' { output: 'pdf' }
+```
