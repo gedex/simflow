@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const parseArgs = require( 'minimist' )
-const config = require( './lib/config.js' )
+const parseConfig = require( './lib/config.js' ).parse
 const flow = require( './lib/flow.js' )
 const fs = require( 'fs' )
 const homedir = require( 'os' ).homedir()
@@ -9,7 +9,6 @@ const path = require( 'path' )
 const pkg = require( './package.json' )
 
 const defaultValues = {
-	config: config.defaultLocation,
 	timeout: 10000,
 	user: '',
 }
@@ -21,7 +20,7 @@ Usage:
    ${ pkg.name } <flows...> [options...]
 
 Options:
-  -c, --config    Config file. Default to ${ defaultValues.config }
+  -c, --config    Config file.
   -t, --timeout   Global timeout for wait actions.
                   Default to ${ defaultValues.timeout } (in milliseconds).
   -h, --headless  Run Chrome in headless mode.
@@ -72,7 +71,7 @@ if ( viewport ) {
 args.viewport = viewport
 
 try {
-	flow.run( config.parse( args ) )
+	flow.run( parseConfig( args ) )
 } catch ( e ) {
 	console.error( e.message )
 }

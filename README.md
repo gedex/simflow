@@ -12,25 +12,17 @@ npm i -g simflow
 ## Usage
 
 ```
-simflow
+simflow <flows...> [options...]
 ```
 
-* Flows are defined in JSON config file. Template config can be found in `~/.simflow.json`.
-* Running `simflow` without specifying `-c` (config file) will use template config.
+Flows are defined in JSON config file.
 
 ### Example
 
 This example demonstrates a simple flow of searching GitHub project and take
 a sreenshot of search results.
 
-* Copy template config:
-
-  ```
-  simflow test # This will generate template config in ~/.simflow.json
-  cp ~/.simflow.json ./example-gh-project.json
-  ```
-
-* Modify `example-gh-simflow.json` content:
+* Create `example-gh-simflow.json`:
 
   ```json
   {
