@@ -1,0 +1,13 @@
+{
+	"url": "https://example.com",
+	"initialState": "foo",
+	"flows": {
+		"flowName": {
+			"steps": [
+				"Goto '/'"
+			],
+			"inputState": "foo",
+			"outputState": "bar"
+		}
+	}
+}
