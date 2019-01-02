@@ -23,10 +23,10 @@
 			"requireUser": true,
 			"inputState": "notLoggedIn",
 			"steps": [
-				"Goto /",
+				"Goto '/'",
 				"See loginLink",
 				"Click loginLink",
-				"Page reloads",
+				"Wait page { to: 'reload' }",
 				"See usernameField",
 				"Type in usernameField user.username",
 				"See usernameField",
@@ -37,7 +37,7 @@
 		"logout": {
 			"inputState": "loggedIn",
 			"steps": [
-				"goto page /my-dashboard",
+				"goto '/my-dashboard'",
 				"see logoutLink",
 				"click logoutLink",
 				"see loginLink"
