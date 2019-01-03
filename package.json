@@ -15,7 +15,7 @@
     "test": "npm run pegjs && mocha --reporter spec --bail --check-leaks test/",
     "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
-    "no-changes": "git diff --exit-code && git diff --cached --exit-code && git ls-files --other --exclude-standard --directory --error-unmatch"
+    "no-changes": "git diff --exit-code && git diff --cached --exit-code"
   },
   "repository": {
     "type": "git",
