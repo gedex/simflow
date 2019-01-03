@@ -1,3 +1,4 @@
+/* global describe, it */
 const assert = require( 'assert' )
 const parseConfig = require( '../lib/config.js' ).parse
 const joinPath = require( 'path' ).join
@@ -6,7 +7,7 @@ const {
 	InvalidConfig,
 } = require( '../lib/errors.js' )
 
-const configFixture = ( tail ) => joinPath( __dirname, 'fixtures', tail )
+const configFixture = tail => joinPath( __dirname, 'fixtures', tail )
 
 describe( 'config parser', () => {
 	it( 'throws MissingConfig if config arg is empty', () => {
@@ -83,7 +84,7 @@ describe( 'config parser', () => {
 			puppeteer: {
 				defaultViewport: null,
 				ignoreHTTPSErrors: true,
-				headless: undefined,
+				headless: undefined, /* eslint-disable-line no-undefined */
 				timeout: 1000,
 			},
 		}

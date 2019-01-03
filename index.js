@@ -3,9 +3,6 @@
 const parseArgs = require( 'minimist' )
 const parseConfig = require( './lib/config.js' ).parse
 const flow = require( './lib/flow.js' )
-const fs = require( 'fs' )
-const homedir = require( 'os' ).homedir()
-const path = require( 'path' )
 const pkg = require( './package.json' )
 
 const defaultValues = {
@@ -22,7 +19,7 @@ Options:
   -c, --config    Config file.
   -t, --timeout   Global timeout for wait actions.
                   Default to ${ defaultValues.timeout } (in milliseconds).
-  -h, --headless  Run Chrome in headless mode.
+      --headless  Run Chrome in headless mode.
       --viewport  Viewport for each page. Example viewport: 800x600.
 
   -v, --version   Show version.
@@ -35,13 +32,13 @@ const args = parseArgs( process.argv.slice( 2 ), {
 	alias: {
 		c: 'config',
 		t: 'timeout',
-		h: 'headless',
 		v: 'version',
 		h: 'help',
 	},
 	default: defaultValues,
 } )
 
+/* eslint-disable no-console, no-process-exit */
 if ( args.version ) {
 	console.log( pkg.version )
 	process.exit( 0 )
@@ -54,7 +51,7 @@ if ( ! args._.length || args.help ) {
 
 let timeout = parseInt( args.timeout, 10 ) || defaultValues.timeout
 if ( timeout < 0 ) {
-	timeout = defaultValues.timeout
+	( { timeout } = defaultValues )
 }
 args.timeout = timeout
 

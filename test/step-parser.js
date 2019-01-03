@@ -1,3 +1,4 @@
+/* global describe, it */
 const assert = require( 'assert' )
 const parser = require( '../lib/step-parser.js' )
 
@@ -5,16 +6,17 @@ const assertSteps = steps => {
 	steps.forEach( test => {
 		const [ step, expected ] = test
 
-		let actual = null
+		let actual
 		try {
 			actual = parser.parse( step )
-		} catch ( e ) {  }
+		} catch ( e ) {
+			actual = null
+		}
 
 		const suffix = actual !== null
 			? 'returns an expected result'
 			: 'throws an exception'
 
-		
 		it( `'${ step }' ${ suffix }`, () => {
 			assert.deepStrictEqual( actual, expected )
 		} )
