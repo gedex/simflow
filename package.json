@@ -8,6 +8,7 @@
   },
   "scripts": {
     "pegjs": "pegjs -o lib/step-parser.js lib/step.pegjs",
+    "lint": "eslint .",
     "test": "npm run pegjs && mocha --reporter spec --bail --check-leaks test/"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "puppeteer": "^1.11.0"
   },
   "devDependencies": {
+    "eslint": "^5.11.1",
     "mocha": "^5.2.0",
     "pegjs": "^0.10.0"
   }
