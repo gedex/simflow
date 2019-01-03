@@ -15,10 +15,11 @@
     "test": "npm run pegjs && mocha --reporter spec --bail --check-leaks test/",
     "test-ci": "npm run pegjs && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/",
     "test-cov": "npm run pegjs && istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+    "push": "git checkout master && git push origin master",
     "no-changes": "git diff --exit-code && git diff --cached --exit-code",
-    "bump:patch": "npm run lint && npm run test && npm run no-changes && npm version patch && git push --tags && npm publish",
-    "bump:minor": "npm run lint && npm run test && npm run no-changes && npm version minor && git push --tags && npm publish",
-    "bump:major": "npm run lint && npm run test && npm run no-changes && npm version major && git push --tags && npm publish"
+    "bump:patch": "npm run lint && npm run test && npm run no-changes && npm run push && npm version patch && git push --tags && npm publish",
+    "bump:minor": "npm run lint && npm run test && npm run no-changes && npm run push && npm version minor && git push --tags && npm publish",
+    "bump:major": "npm run lint && npm run test && npm run no-changes && npm run push && npm version major && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
