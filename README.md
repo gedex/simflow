@@ -3,6 +3,10 @@ simflow
 
 Simply define and run your flows in Chrome.
 
+[![NPM Version][npm-image]][npm-url]
+[![Build][travis-image]][travis-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
 ## Install
 
 ```
@@ -85,3 +89,10 @@ Press 'Enter' { delay: 1000 }
 Save screenshot as './screenshots/filename.png' { fullPage: true }
 Save page as './pages/index.pdf' { output: 'pdf' }
 ```
+
+[npm-image]: https://img.shields.io/npm/v/simflow.svg
+[npm-url]: https://npmjs.org/package/simflow
+[travis-image]: https://img.shields.io/travis/gedex/simflow/master.svg?label=linux
+[travis-url]: https://travis-ci.org/gedex/simflow
+[coveralls-image]: https://img.shields.io/coveralls/gedex/simflow/master.svg
+[coveralls-url]: https://coveralls.io/r/gedex/simflow?branch=master
