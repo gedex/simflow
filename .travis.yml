@@ -1,5 +1,5 @@
-langage: node_js
-nodejs:
+language: node_js
+node_js:
     - "7.10"
     - "8"
     - "10"
