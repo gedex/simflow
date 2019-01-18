@@ -452,6 +452,34 @@ describe( 'step parser', () => {
 				},
 			],
 			[
+				'Wait request { to: "/?wc-ajax=update_order_review", timeout: 5000 }',
+				{
+					action: 'wait',
+					object: {
+						type: 'ReserveObject',
+						value: 'request',
+					},
+					args: [
+						{ key: 'to', value: { type: 'Literal', value: '/?wc-ajax=update_order_review' } },
+						{ key: 'timeout', value: { type: 'Literal', value: 5000 } },
+					]
+				},
+			],
+			[
+				'Wait response { from: "/?wc-ajax=update_order_review", timeout: 5000 }',
+				{
+					action: 'wait',
+					object: {
+						type: 'ReserveObject',
+						value: 'response',
+					},
+					args: [
+						{ key: 'from', value: { type: 'Literal', value: '/?wc-ajax=update_order_review' } },
+						{ key: 'timeout', value: { type: 'Literal', value: 5000 } },
+					]
+				},
+			],
+			[
 				'Wait url { has: "success=true" }',
 				{
 					action: 'wait',
