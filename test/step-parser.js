@@ -268,6 +268,63 @@ describe( 'step parser', () => {
 		assertSteps( steps )
 	} )
 
+	describe( 'parse step select', () => {
+		const steps = [
+			[
+				'Select namedSelector "hello"',
+				{
+					action: 'select',
+					object: {
+						type: 'Identifier',
+						name: 'namedSelector',
+						frame: null,
+						args: null,
+						values: { type: 'Literal', value: 'hello' },
+					},
+					args: null,
+				},
+			],
+			[
+				'Select namedSelector@frameName "foo, bar, "',
+				{
+					action: 'select',
+					object: {
+						type: 'Identifier',
+						name: 'namedSelector',
+						frame: { type: 'Identifier', name: 'frameName' },
+						args: null,
+						values: { type: 'Literal', value: 'foo, bar, ' },
+					},
+					args: null,
+				},
+			],
+			[
+				'select namedSelector@frameName( foo: bar  ) values',
+				{
+					action: 'select',
+					object: {
+						type: 'Identifier',
+						name: 'namedSelector',
+						frame: { type: 'Identifier', name: 'frameName' },
+						args: [
+							{ key: 'foo', value: { type: 'Identifier', name: 'bar' } },
+						],
+						values: { type: 'Identifier', name: 'values' },
+					},
+					args: null,
+				},
+			],
+			// Parse errors.
+			[ 'select xo@frame 123', null ],
+			[ 'select selectorName', null ],
+			[ 'select false@frame', null ],
+			[ 'select page', null ],
+			[ 'select true', null ],
+		]
+
+		assertSteps( steps )
+	} )
+
 	describe( 'parse step press', () => {
 		const steps = [
 			[
